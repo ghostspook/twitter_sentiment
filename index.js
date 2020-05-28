@@ -13,16 +13,24 @@ const user = new Twitter({
 // immediately so that we can use "await" statements.
 (async function() {
     try {
-        // Retrieve the bearer token from twitter.
-        const response = await user.getBearerToken();
-        console.log(`Got the following Bearer token from Twitter: ${response.access_token}`);
-        
-        // Construct our API client with the bearer token.
+        let response = await user.getBearerToken();
         const app = new Twitter({
             bearer_token: response.access_token,
         });
+
+        // Search for recent tweets from the twitter API
+        response = await app.get(`/search/tweets`, {
+            q: "Lionel Messi", // The search term
+            lang: "en",        // Let's only get English tweets
+            count: 100,        // Limit the results to 100 tweets
+        });
+
+        // Loop over all the tweets and print the text
+        for (tweet of response.statuses) {
+            console.dir(tweet.text);
+        }
     } catch(e) {
-        console.log("There was an error calling the Twitter API.");
+        console.log("There was an error calling the Twitter API");
         console.dir(e);
     }
 })();
