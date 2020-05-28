@@ -9,6 +9,7 @@
   "author": "Rafael Castillo",
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/language": "^4.0.0",
     "dotenv": "^8.2.0",
     "twitter-lite": "^0.13.0"
   }
