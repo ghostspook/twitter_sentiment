@@ -20,8 +20,8 @@ const user = new Twitter({
 
         // Search for recent tweets from the twitter API
         response = await app.get(`/search/tweets`, {
-            q: "Lionel Messi", // The search term
-            lang: "en",        // Let's only get English tweets
+            q: "Lenín Moreno", // The search term
+            lang: "es",        // Let's only get English tweets
             count: 100,        // Limit the results to 100 tweets
         });
 
