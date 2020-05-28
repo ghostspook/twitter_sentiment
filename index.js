@@ -10,6 +10,7 @@ const user = new Twitter({
 });
 
 const query = 'Lenín Moreno';
+const lang = 'es'; // The language of the tweets to retrieve
 
 // Wrap the following code in an async function that is called
 // immediately so that we can use "await" statements.
@@ -23,8 +24,8 @@ const query = 'Lenín Moreno';
         // Search for recent tweets from the twitter API
         response = await app.get(`/search/tweets`, {
             q: query, // The search term
-            lang: "es",        // Let's only get English tweets
-            count: 100,        // Limit the results to 100 tweets
+            lang: lang,        
+            count: 200,        // Limit the results to n tweets
         });
 
         // Loop over all the tweets and print the text
@@ -54,6 +55,7 @@ async function getSentimentScore(text) {
     const document = {
         content: text,
         type: 'PLAIN_TEXT',
+        language: lang
     };
 
     // Detects the sentiment of the text
