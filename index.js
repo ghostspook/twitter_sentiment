@@ -1,8 +1,12 @@
 const Twitter = require('twitter-lite');
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const user = new Twitter({
-    consumer_key: "YOUR_API_KEY",
-    consumer_secret: "YOUR_API_SECRET",
+    consumer_key: process.env.TWITTER_API_KEY,
+    consumer_secret: process.env.TWITTER_API_SECRET,
 });
 
 // Wrap the following code in an async function that is called
