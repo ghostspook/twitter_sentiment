@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rafael Castillo",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "twitter-lite": "^0.13.0"
+  }
 }
